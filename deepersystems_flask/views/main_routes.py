@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for
 from deepersystems_flask.forms import HomePage, LikeButtonForm, DisLikeButtonForm
 from deepersystems_flask.extentions import mongo
+from bson.objectid import ObjectId
 
 main = Blueprint('main', __name__)
 
@@ -27,10 +28,9 @@ def likes():
 
     likes = LikeButtonForm()
     coll = mongo.db.flaskapp
-    # post = coll.find_one({'_id': likes.hidden.data})
-    post = coll.find_one({'video_name': likes.hidden.data})
+    post = coll.find_one({'_id': ObjectId(likes.hidden.data)})
     post['likes'] += 1
-    coll.update_one({'video_name': likes.hidden.data}, {"$set": post}, upsert=False)
+    coll.update_one({'_id': ObjectId(likes.hidden.data)}, {"$set": post}, upsert=False)
 
     return redirect(url_for('main.index'))
 
@@ -40,9 +40,8 @@ def dislikes():
 
     dislikes = DisLikeButtonForm()
     coll = mongo.db.flaskapp
-    # post = coll.find_one({'_id': likes.hidden.data})
-    post = coll.find_one({'video_name': dislikes.hidden.data})
+    post = coll.find_one({"_id": ObjectId(dislikes.hidden.data)})
     post['dislikes'] += 1
-    coll.update_one({'video_name': dislikes.hidden.data}, {"$set": post}, upsert=False)
+    coll.update_one({'_id': ObjectId(dislikes.hidden.data)}, {"$set": post}, upsert=False)
 
     return redirect(url_for('main.index'))

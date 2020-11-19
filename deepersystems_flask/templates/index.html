@@ -40,13 +40,13 @@ Deeper Systems
                     <div class="row">
                         <div class="col-md-1">
                            <form action="{{ url_for('main.likes') }}" method="POST">
-                                {{ likes.hidden(value=vid.video_name) }}
+                                {{ likes.hidden(value=vid._id) }}
                                 {{ likes.submit }}
                             </form>
                         </div>
                         <div class="col-md-1">
                             <form action="{{ url_for('main.dislikes') }}" method="POST">
-                                {{ dislikes.hidden(value=vid.video_name) }}
+                                {{ dislikes.hidden(value=vid._id) }}
                                 {{ dislikes.submit }}
                             </form>
                         </div>
