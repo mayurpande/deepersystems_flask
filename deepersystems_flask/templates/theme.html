@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Deeper Systems - Theme
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row justify-content-center">
+        <ul class="list-group">
+            {% for theme in high_themes %}
+                <li class="list-group-item">Theme name: {{ theme.theme_name }}<br />Score: {{ theme.score }}<br /></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
