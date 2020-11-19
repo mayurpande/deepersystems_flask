@@ -1,0 +1,2 @@
+FLASK_APP=development
+FLASK_APP=deepersystems_flask
