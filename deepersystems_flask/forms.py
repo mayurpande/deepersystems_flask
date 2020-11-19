@@ -8,6 +8,7 @@ class HomePage(FlaskForm):
 
     video_name = StringField('Video Name')
     theme_name = StringField('Theme name')
+    url = StringField('URL')
 
 
 class LikeButtonForm(FlaskForm):

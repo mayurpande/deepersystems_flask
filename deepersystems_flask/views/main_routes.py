@@ -18,7 +18,8 @@ def index():
 
         video_name = form.video_name.data
         theme_name = form.theme_name.data
-        deep_coll.insert({'video_name': video_name, 'theme_name': theme_name, 'likes': 0, 'dislikes': 0})
+        url = form.url.data
+        deep_coll.insert({'video_name': video_name, 'theme_name': theme_name, 'url': url, 'likes': 0, 'dislikes': 0})
 
     return render_template('index.html', form=form, vids=vids, likes=likes, dislikes=dislikes)
 
