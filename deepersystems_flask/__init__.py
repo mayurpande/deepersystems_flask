@@ -1,5 +1,5 @@
 from flask import Flask
-from .extentions import mongo
+from .extentions import mongo, bootstrap
 from .config import Config
 from .views import routes
 
@@ -12,6 +12,8 @@ def create_app():
     app.config.from_object(Config)
 
     mongo.init_app(app)
+
+    bootstrap.init_app(app)
 
     # register blueprints to app
     app.register_blueprint(routes.main)
