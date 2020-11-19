@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, url_for
 from deepersystems_flask.forms import HomePage, LikeButtonForm, DisLikeButtonForm
 from deepersystems_flask.extentions import mongo
 
